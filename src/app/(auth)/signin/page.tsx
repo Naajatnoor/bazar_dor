@@ -58,12 +58,13 @@ const SignInPage = () => {
           />
 
           <label className="label">পাসওয়ার্ড</label>
-          <input
-            name="password"
-            type="password"
-            className="input w-md"
-            placeholder="Password"
-          />
+         <input
+  type="password"
+  name="password"
+  placeholder="Password"
+  autoComplete="current-password"
+  className="input w-full"
+/>
 
           <button type="submit" className="btn text-white bg-green-700 mt-4 ">
             সাইন ইন করুন
