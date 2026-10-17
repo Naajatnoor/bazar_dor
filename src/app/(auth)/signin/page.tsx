@@ -31,18 +31,31 @@ const SignInPage = () => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-    });
+const handleGoogleSignIn = async () => {
+  const { data, error } = await authClient.signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
 
-  };
-
-  const handleGithubSignIn = async () => {
- await signIn.social({
-      provider: "github",
-    });
+  if (error) {
+    toast.error("Google Sign In failed!");
+  } else if (data) {
+    toast.success("Google Sign In successful!");
   }
+};
+
+const handleGithubSignIn = async () => {
+  const { data, error } = await authClient.signIn.social({
+    provider: "github",
+    callbackURL: "/",
+  });
+
+  if (error) {
+    toast.error("GitHub Sign In failed!");
+  } else if (data) {
+    toast.success("GitHub Sign In successful!");
+  }
+};
 
   return (
     <div className="flex flex-col items-center justify-center mt-5">
